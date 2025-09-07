@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="dup.css">
+</head>
+<body>
+
+<header>
+    <div class="head">
+        <div id="icon"></div>  
+        <div id="logo"></div> 
+        <h1 style="margin-left: 100px;">Sales/Purchase and Inventory Management System</h1>
+    </div>
+</header>
+
+<!-- Date Range & Type Selection for Filtering -->
+<div class="d-box">
+    <p class="d">Start Date</p>
+    <input type="date" id="startdate" class="in">
+    <p class="d">End Date</p>
+    <input type="date" id="enddate" class="in">
+
+    <label for="transactionFilter">Transaction Type:</label>
+    <select id="transactionFilter">
+        <option value="all">All</option>
+        <option value="purchase">Purchase</option>
+        <option value="sales">Sales</option>
+    </select>
+
+    <label for="productFilter">Product:</label>
+    <input type="text" id="productFilter" placeholder="Enter product name">
+    <label for="sortOrder">Sort By:</label>
+    <select id="sortOrder">
+    <option value="newest">Newest First</option>
+    <option value="oldest">Oldest First</option>
+    </select>
+    <button id="filterTransactions">Filter Transactions</button>
+    <button id="resetFilters">Reset Filters</button>
+</div>
+
+
+<!-- Button to Load Transactions -->
+<div class="transactions">
+    <h2>Transaction History</h2>
+    <div class="transaction-header">
+        <button id="loadTransactions">Load Transactions</button>
+        <button id="deleteSelected">❌ Delete Selected</button>
+    </div>
+    <div id="transactionTableContainer" style="display: none;">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th>delete</th>
+                </tr>
+            </thead>
+            <tbody id="transactionTable">
+                <!-- Transactions will be inserted here -->
+            </tbody>
+        </table>
+        
+    </div>
+    
+    <!-- ✅ Total Sales & Purchases (Initially Hidden) -->
+    <div id="totalsContainer" class="totals-box" style="display: none;">
+        <div class="total-item sales">
+            <h3>Total Sales</h3>
+            <p><strong id="totalSales">$0</strong></p>
+        </div>
+        <div class="total-item purchases">
+            <h3>Total Purchases</h3>
+            <p><strong id="totalPurchases">$0</strong></p>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Add or Update Transaction -->
+<div class="c2">
+    <h2>Add Transaction</h2>
+    <div class="r1">
+        <label for="transactionProduct">Product:</label>
+        <input type="text" id="transactionProduct" placeholder="Enter product name">
+        <label for="transactionQuantity">Quantity:</label>
+        <input type="number" id="transactionQuantity">
+        <label for="transactionDate">Date:</label>
+        <input type="date" id="transactionDate">
+    </div>
+    <br>
+    <div class="r2">
+        <label for="transactionType">Transaction Type:</label>
+        <select id="transactionType">
+            <option value="purchase">Purchase</option>
+            <option value="sales">Sales</option>
+        </select>
+        <label for="transactionPrice">Price:</label>
+        <input type="number" id="transactionPrice">
+        <button id="addTransaction">Add Transaction</button>
+    </div>
+</div>
+
+<div class="stocks">
+    <h2>Check Product Availability</h2>
+    <input type="text" id="product" placeholder="Enter product name">
+    <button id="extractStock">Check Stock</button>
+    <p id="stockInfo"></p> <!-- ✅ Stock info appears here -->
+</div>
+<button onclick="startListening()">🎤 Voice Command</button>
+<p id="voice-output" style="color:green;font-weight:bold;"></p>
+
+<!-- ✅ Script JS Added Here -->
+<script src="script.js"></script>
+
+</body>
+</html>
