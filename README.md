@@ -1,4 +1,8 @@
 Mini Project - Inventory Management System
+installation
+***git clone link
+npm intall dotenv express cors bcrypt mongoose
+run node server.js***
 
 This is a mini project developed using Node.js and HTML/CSS/JavaScript for managing inventory, authentication, and related operations.
 
